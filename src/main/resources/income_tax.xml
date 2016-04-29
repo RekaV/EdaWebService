@@ -1,0 +1,1241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dialog xsi:noNamespaceSchemaLocation="WatsonDialogDocument_1.0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<flow>
+		<folder label="Main">
+
+			<output>
+				<prompt selectionType="RANDOM">
+					<item>Hi, I can help you to file a income tax return, are you looking for single or joint filing?
+					</item>
+				</prompt>
+				<goto ref="getUserInput_2442994" />
+			</output>
+			<output id="output_start">
+				<prompt selectionType="SEQUENTIAL">
+					<item>Please confirm if you are a single or joint filer?</item>
+				</prompt>
+				<getUserInput id="getUserInput_2442994">
+					<search ref="folder_2442998" />
+					<default>
+						<output>
+							<prompt selectionType="RANDOM">
+								<item>I'm sorry I did not understand your reply.</item>
+								<item>I did not quite get that.</item>
+								<item>I didn't grasp what you said.</item>
+								<item>I'm not following you at the moment.</item>
+							</prompt>
+						</output>
+					</default>
+				</getUserInput>
+			</output>
+		</folder>
+
+		<folder label="Library">
+			<folder label="Live Content" id="folder_2442998">
+				<input>
+					<grammar>
+						<item>i need to do my taxes</item>
+						<item>i need to file my taxes</item>
+						<item>i need to file tax</item>
+						<item>i need to file income tax</item>
+						<item>can you help me file my taxes</item>
+						<item>help me file my taxes</item>
+						<item>can you help me do my taxes</item>
+						<item>can you assist me file my taxes</item>
+						<item>i want to file tax</item>
+						<item>want to file tax</item>
+						<item>i want to file income tax</item>
+						<item>i want to file it</item>
+						<item>i need to file it</item>
+						<item>i would like to file tax</item>
+						<item>i would like to file income tax</item>
+						<item>i would like to file it</item>
+						<item>like to file tax</item>
+						<item>I need to do my taxes</item>
+						<item>I need to file my taxes</item>
+						<item>I need to file tax</item>
+						<item>I need to file income tax</item>
+						<item>I want to file tax</item>
+						<item>I want to file income tax</item>
+						<item>I want to file it</item>
+						<item>I need to file it</item>
+						<item>I would like to file tax</item>
+						<item>I would like to file income tax</item>
+						<item>I would like to file it</item>
+					</grammar>
+					<goto ref="output_101"></goto>
+				</input>
+				<input>
+					<grammar>
+						<item>$ i need to buy travel insurance</item>
+						<item>$ i need to buy insurance</item>
+						<item>$ i need travel insurance</item>
+						<item>$ i need a travel insurance</item>
+						<item>$ i want travel insurance</item>
+						<item>$ i want a travel insurance</item>
+						<item>$ buy travel insurance</item>
+						<item>$ buy insurance</item>
+						<item>$ i want to get travel insurance</item>
+						<item>$ i need to get travel insurance</item>
+						<item>$ want to get travel insurance</item>
+						<item>$ need to get travel insurance</item>
+						<item>$ check for travel insurance</item>
+						<item>$ i would like to buy travel insurance</item>
+						<item>$ i would like to get travel insurance</item>
+						<item>$ like to buy travel insurance</item>
+						<item>$ like to get travel insurance</item>
+						<item>$ can i get travel insurance</item>
+						<item>$ shall i get travel insurance</item>
+					</grammar>
+					<goto ref="output_102"></goto>
+				</input>
+				<input>
+					<grammar>
+						<item>$ i need to send flowers</item>
+						<item>$ send flowers to </item>
+						<item>$ i would like to send flowers</item>
+						<item>$ i like to send flowers</item>
+						<item>$ i like send flowers to </item>
+						<item>$ i want to send flowers </item>
+						<item>$ i want to send flowers to </item>
+						<item>$ need to send flowers</item>
+						<item>$ want to send flowers </item>
+						<item>$ like to send flowers </item>
+						<item>$ shall i send flowers </item>
+						<item>$ </item>
+					</grammar>
+					<goto ref="output_103"></goto>
+				</input>
+ 
+				<output id="output_101">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Please confirm if you are a single or joint filer?</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>i am single</item>
+								<item>I am single</item>
+								<item>single</item>
+								<item>single filer</item>
+								<item>i am a single filer</item>
+								<item>I am a single filer</item>
+								<item>only myself</item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_1"></goto>
+						</input>
+						<input>
+							<grammar>
+								<item>i am filing jointly</item>
+								<item>I am filing jointly</item>
+								<item>joint</item>
+								<item>joint filer</item>
+								<item>i do joint filing</item>
+								<item>i need to do joint filing</item>
+								<item>i want to file jointly</item>
+								<item>I do joint filing</item>
+								<item>I need to do joint filing</item>
+								<item>I want to file jointly</item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_spouse"></goto>
+						</input>
+					</getUserInput>
+				</output>
+
+				<output id="output_spouse">
+					<prompt selectionType="SEQUENTIAL">
+						<item>OK. I will need to collect some information from you. Tell me your first name middle name and last name
+						</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>my firstname is</item>
+								<item>$ firstname is</item>
+								<item>$ firstname</item>
+								<item>my first name is</item>
+								<item>$ first name is</item>
+								<item>$ first name</item>
+								<item>$ </item>
+								<item>$ people call me</item>
+								<item>$ myself</item>
+								<item>$ my name is </item>
+								<item>$ i am</item>
+								<item>$ I am</item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_spouse_2"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<!-- <output id="output_spouse_1">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Tell me your Last Name</item>
+					</prompt>
+					<getUserInput>
+						<input isAutoLearnCandidate="true"
+                        isRelatedNodeCandidate="true">
+							<grammar>
+								<item>my last name is</item>
+								<item>my lastname is</item>
+								<item>$ last name</item>
+								<item>$ lastname</item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_spouse_2"></goto>
+						</input>
+					</getUserInput>
+				</output> -->
+				<output id="output_spouse_2">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Tell me your spouse's first name middle name and last name</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ his</item>
+								<item>$ her</item>
+								<item>$ firstname is</item>
+								<item>$ firstname</item>
+								<item>$ first name is</item>
+								<item>$ first name</item>
+								<item>$ </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_4"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<!-- <output id="output_spouse_3">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Tell me your spouse's Last Name</item>
+					</prompt>
+					<getUserInput>
+						<input isAutoLearnCandidate="true"
+                        isRelatedNodeCandidate="true">
+							<grammar>
+								<item>$ his </item>
+								<item>$ her </item>
+								<item>$ last name</item>
+								<item>$ lastname</item>
+								<item>$  </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_4"></goto>
+						</input>
+					</getUserInput>
+				</output>
+ -->
+				<output id="output_1">
+					<prompt selectionType="SEQUENTIAL">
+						<item>OK. I will need to collect some information from you. Tell me your first name middle name and last name</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>my firstname is</item>
+								<item>$ firstname is</item>
+								<item>$ firstname</item>
+								<item>my first name is</item>
+								<item>$ first name is</item>
+								<item>$ first name</item>
+								<item>$ </item>
+								<item>$ people call me</item>
+								<item>$ myself</item>
+								<item>$ my name is </item>
+								<item>$ i am</item>
+								<item>$ I am</item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_4"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<!-- <output id="output_3">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Tell me your Last Name</item>
+					</prompt>
+					<getUserInput>
+						<input isAutoLearnCandidate="true"
+                        isRelatedNodeCandidate="true">
+							<grammar>
+								<item>$ my last name is</item>
+								<item>$ my lastname is</item>
+								<item>$ last name</item>
+								<item>$ lastname</item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_4"></goto>
+						</input>
+					</getUserInput>
+				</output> -->
+				<output id="output_4">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Give me your home address (number and street)</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>my home address is</item>
+								<item>$ address</item>
+								<item>$ i live at </item>
+								<item>$ I live at </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_5"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_5">
+					<prompt selectionType="SEQUENTIAL">
+						<item>tell me your city, state and zip code</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>my city is</item>
+								<item>$ city</item>
+								<item>$ i live at</item>
+								<item>$ I live at</item>
+								<item>$ </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_final"></goto>
+						</input>
+					</getUserInput>
+				</output>
+
+				<!-- <output id="output_6">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Do you have a foreign address?</item>
+					</prompt>
+					<getUserInput>
+						<input isAutoLearnCandidate="true"
+                        isRelatedNodeCandidate="true">
+							<grammar>
+								<item>yes</item>
+								<item>$ yes</item>
+								<item>$ yup</item>
+								<item>$ yep</item>
+								<item>$ s</item>
+							</grammar>
+							<goto ref="output_7"></goto>
+						</input>
+						<input isAutoLearnCandidate="true"
+                        isRelatedNodeCandidate="true">
+							<grammar>
+								<item>no</item>
+								<item>$ no</item>
+								<item>$ nope</item>
+							</grammar>
+							<goto ref="output_final"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_7">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Please tell me your foreign country of residence and postal code</item>
+					</prompt>
+					<getUserInput>
+						<input isAutoLearnCandidate="true"
+                        isRelatedNodeCandidate="true">
+							<grammar>
+								<item>$ foreign address is</item>
+								<item>$ my foreign address is</item>
+								<item>$ my foreign residence</item>
+								<item>$ address would be</item>
+								<item>$ address </item>
+								<item>$ </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_8"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_8">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Tell me your foreign address including foreign province or county or state</item>
+					</prompt>
+					<getUserInput>
+						<input isAutoLearnCandidate="true"
+                        isRelatedNodeCandidate="true">
+							<grammar>
+								<item>$ foreign address</item>
+								<item>$ state</item>
+								<item>$ county</item>
+								<item>$ province </item>
+								<item>$ door number </item>
+								<item>$ address </item>
+								<item>$ </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_final"></goto>
+						</input>
+					</getUserInput>
+				</output>
+ -->
+				<output id="output_final">
+					<prompt selectionType="RANDOM">
+						<item>Your request will now be forwarded to one of our agents to guide you through the filing process. Are you sure to continue?
+						</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ yes</item>
+								<item>$ yep</item>
+								<item>$ yup</item>
+								<item>$ ok</item>
+								<item>$ yeah</item>
+								<item>$ sure</item>
+								<item>$ fine</item>
+								<item>$ good</item>
+								<item>$ go ahead</item>
+							</grammar>
+							<goto ref="output_thanks"></goto>
+						</input>
+						<input>
+							<grammar>
+								<item>I dont want it</item>
+								<item>$ no</item>
+								<item>$ nope</item>
+								<item>$ not now</item>
+							</grammar>
+							<goto ref="output_thanks"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				
+				<output id="output_thanks">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Ok, thank you</item>
+					</prompt>
+				</output>
+				<output id="output_102">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Are you looking for travel insurance?</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ yes </item>
+								<item>$ yeah </item>
+								<item>$ yep </item>
+								<item>$ i </item>
+								<item>$ yup </item>
+								<item>$ ofcourse </item>
+								<item>$ ok </item>
+							</grammar>
+							<goto ref="output_insurance_0"></goto>
+						</input>
+						<input>
+							<grammar>
+								<item>$ no </item>
+								<item>$ nope </item>
+								<item>$ not </item>
+								<item>$ i </item>
+								<item>$ am </item>
+								<item>$ don't </item>
+							</grammar>
+							<goto ref="output_insurance_ok"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_insurance_ok">
+					<prompt selectionType="SEQUENTIAL">
+					<item>Ok</item>
+					</prompt>
+				</output>
+				<output id="output_insurance_0">
+					<prompt selectionType="SEQUENTIAL">
+						<item>OK. I will need some information from you. Please say the destination</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ destination </item>
+								<item>$ i am going to</item>
+								<item>$ am </item>
+								<item>$ i </item>
+								<item>$ going </item>
+								<item>$ my destination </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_insurance_1"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_insurance_1">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Please say the departure date</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ departure </item>
+								<item>$ date</item>
+								<item>$ i </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_insurance_2"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_insurance_2">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Please say the arrival date</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ date</item>
+								<item>$ arrival </item>
+								<item>$ i </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_insurance_3"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_insurance_3">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Do you need a single or multiple passenger policy?</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ single  </item>
+								<item>$ i need single </item>
+								<item>$ i want single </item>
+								<item>$ multiple</item>
+								<item>$ i need multiple </item>
+								<item>$ i want multiple </item>
+								<item>$ multi </item>
+								<item>$ i need </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_insurance_4"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_insurance_4">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Tell me your first name middle name and last name</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ my name </item>
+								<item>$ myself</item>
+								<item>$ name</item>
+								<item>$ first name </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_insurance_5"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_insurance_5">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Tell me your age</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ i am  </item>
+								<item>$ age </item>
+								<item>$ my age </item>
+								<item>$ </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_insurance_6"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_insurance_6">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Please tell me your gender </item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ i am </item>
+								<item>$ male </item>
+								<item>$ female </item>
+								<item>$ other </item>
+								<item>$ transgender </item>
+								<item>$ gender </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_insurance_7"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_insurance_7">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Tell me your mobile number in the format, country code - area code followed by number</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ my mobile number </item>
+								<item>$ my number </item>
+								<item>$ my contact number </item>
+								<item>$ mobile number</item>
+								<item>$ number </item>
+								<item>$ contact number </item>
+								<item>$ </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_insurance_8"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_insurance_8">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Tell me your Email ID</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ my email </item>
+								<item>$ email </item>
+								<item>$ my mail </item>
+								<item>$ mail </item>
+								<item>$ </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_insurance_9"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_insurance_9">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Please choose your trip Local or international </item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ local </item>
+								<item>$ international </item>
+								<item>$ i </item>
+								<item>$ its </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_insurance_10"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_insurance_10">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Are you looking for one way or round trip </item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ i am looking for </item>
+								<item>$ one way </item>
+								<item>$ oneway </item>
+								<item>$ round </item>
+								<item>$ trip </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_insurance_11"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_insurance_11">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Please choose your id proof Passport or Driving license </item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ id </item>
+								<item>$ proof </item>
+								<item>$ passport</item>
+								<item>$ driving license </item>
+								<item>$ i am holding </item>
+								<item>$ i </item>
+								<item>$ choose </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_insurance_12"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_insurance_12">
+					<prompt selectionType="SEQUENTIAL">
+						<item> Here is 3 Options for your trip. Please select one
+							   Option 1: Platinum Plan
+							   Option 2: Gold Plan
+							   Option 3: Silver Plan
+
+						</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ i need </item>
+								<item>$ i want </item>
+								<item>$ i choose</item>
+								<item>$ i prefer</item>
+								<item>$ choose</item>
+								<item>$ gold</item>
+								<item>$ silver</item>
+								<item>$ platinum</item>
+								<item>$ need </item>
+								<item>$ want </item>
+								<item>$ choose</item>
+								<item>$ prefer </item>
+								<item>$ select </item>
+								<item>$ 1 </item>
+								<item>$ 2 </item>
+								<item>$ 3 </item>
+								<item>$ plan </item>
+								<item>$ one </item>
+								<item>$ two </item>
+								<item>$ three </item>
+								<item>$ option </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_insurance_13"></goto>
+						</input>
+					</getUserInput>
+				</output>
+
+				<output id="output_insurance_13">
+					<prompt selectionType="SEQUENTIAL">
+						<item>I have collected all the necessary information. Shall I complete the order</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ yes </item>
+								<item>$ yup </item>
+								<item>$ sure </item>
+								<item>$ ok </item>
+								<item>$ okay </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_thanks"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_103">
+					<prompt selectionType="SEQUENTIAL">
+						<item>Shall i take the order now</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ yes </item>
+								<item>$ ok </item>
+								<item>$ yup </item>
+								<item>$ yep </item>
+								<item>$ go ahead </item>
+								<item>$ carry on</item>
+								<item>$ ofcourse </item>
+							</grammar>
+							<goto ref="output_floral_0"></goto>
+						</input>
+						<input>
+							<grammar>
+								<item>$ no </item>
+								<item>$ not </item>
+								<item>$ don't </item>
+								<item>$ ofcourse </item>
+								<item>$ i </item>
+								<item>$ nope </item>
+								<item>$ please no</item>
+							</grammar>
+							<goto ref="output_floral_ok"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_floral_ok">
+					<prompt selectionType="SEQUENTIAL">
+					<item>Ok</item>
+					</prompt>
+				</output>
+				<output id="output_floral_0">
+					<prompt selectionType="SEQUENTIAL">
+						<item>OK. I will need some information from you. What kind of flowers would you like to send?
+							  Option a) Dozen Roses
+							  Option b) Mixed Bouquet
+							  Option c) Half Dozen Roses
+					   </item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ i like </item>
+								<item>$ i </item>
+								<item>$ like </item>
+								<item>$ send </item>
+								<item>$ want </item>
+								<item>$ need </item>
+								<item>$ dozen roses</item>
+								<item>$ mixed bouquet </item>
+								<item>$ half dozen roses </item>
+								<item>$ option </item>
+								<item> a </item>
+								<item> b </item>
+								<item> c </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_floral_1"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_floral_1">
+					<prompt selectionType="SEQUENTIAL">
+					<item>How much do you want to spend</item></prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ i </item>
+								<item>$ want </item>
+								<item>$ like </item>
+								<item>$ spend </item>
+								<item>$ * dollars </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_floral_2"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_floral_2">
+					<prompt selectionType="SEQUENTIAL"> <item>What do you want the card to say?</item></prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ i </item>
+								<item>$ want</item>
+								<item>$ like </item>
+								<item>$ card </item>
+								<item>$ to say </item>
+								<item>$ say </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_floral_3"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_floral_3">
+					<prompt selectionType="SEQUENTIAL">
+					<item>What is Delivery Name,Address and Phone Number?</item></prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ delivery name </item>
+								<item>$ name </item>
+								<item>$ address </item>
+								<item>$ phone number </item>
+								<item>$ deliver </item>
+								<item>$ send to </item>
+								<item>$ to </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_floral_4"></goto>
+						</input>
+					</getUserInput>
+				</output>
+				<output id="output_floral_4">
+					<prompt selectionType="SEQUENTIAL">
+						<item>I have collected all the necessary information. Shall I complete the order</item>
+					</prompt>
+					<getUserInput>
+						<input>
+							<grammar>
+								<item>$ yes </item>
+								<item>$ yup </item>
+								<item>$ sure </item>
+								<item>$ ok </item>
+								<item>$ okay </item>
+								<item> * </item>
+							</grammar>
+							<goto ref="output_thanks"></goto>
+						</input>
+					</getUserInput>
+				</output> 
+		</folder>
+		</folder>
+		<folder label="Global" />
+		<folder label="Concepts">
+			<concept>
+				<grammar>
+					<item>Income tax return</item>
+					<item>tax</item>
+					<item>income tax</item>
+					<item>tax return</item>
+					<item>tax for income</item>
+				</grammar>
+			</concept>
+			<concept>
+				<grammar>
+					<item>Type</item>
+					<item>kind</item>
+					<item>sort</item>
+					<item>variety</item>
+					<item>types</item>
+					<item>kinds</item>
+					<item>sorts</item>
+					<item>varieties</item>
+				</grammar>
+			</concept>
+			<concept>
+				<grammar>
+					<item>sure</item>
+					<item>certain</item>
+					<item>definite</item>
+					<item>positive</item>
+				</grammar>
+			</concept>
+			<concept>
+				<grammar>
+					<item>No</item>
+					<item>absolutely not</item>
+					<item>apparently not</item>
+					<item>Are not</item>
+					<item>By no means</item>
+					<item>Certainly not</item>
+					<item>Definitely not</item>
+					<item>Hardly</item>
+					<item>Heck no</item>
+					<item>Hell no</item>
+					<item>I suppose not</item>
+					<item>Negative</item>
+					<item>never </item>
+					<item>nix  </item>
+					<item>no no</item>
+					<item>no no no</item>
+					<item>No not at all</item>
+					<item>No not really</item>
+					<item>No thank you</item>
+					<item>no thanks</item>
+					<item>No way</item>
+					<item>Non</item>
+					<item>None</item>
+					<item>nope</item>
+					<item>not at all  </item>
+					<item>not by any means</item>
+					<item>Not completely</item>
+					<item>Not especially</item>
+					<item>Not particularly</item>
+					<item>not really</item>
+					<item>not right now</item>
+					<item>Not that I know of</item>
+					<item>of course not</item>
+					<item>please no</item>
+					<item>probably not</item>
+					<item>nopeity-nope-nope</item>
+					<item>n-n-n-no</item>
+					<item>n-o</item>
+				</grammar>
+			</concept>
+			<concept
+				description="OI 15/7/11: Item &quot;Sure&quot; was removed from this list as it was causing issues with matches when two different input nodes had &quot;I am not sure&quot; and &quot;$ yes&quot;.  OI: 4/8/11: &quot;fine&quot; and &quot;Good&quot; were removed as well  MO 18/10/12 removed &quot;all right&quot; and &quot;alright&quot; as they were causing conflict in perfect boyfriend  MO 29/10/12 removed &quot;always&quot;">
+				<grammar>
+					<item>yes</item>
+					<item>Absolutely</item>
+					<item>absolutely correct</item>
+					<item>absolutely yes</item>
+					<item>Affirmative</item>
+					<item>affirmative yes</item>
+					<item>Ah yes</item>
+					<item>Apparently</item>
+					<item>Apparently so</item>
+					<item>As far as I know</item>
+					<item>aye</item>
+					<item>by all means </item>
+					<item>certainly</item>
+					<item>Completely</item>
+					<item>Constantly</item>
+					<item>Correct</item>
+					<item>dam right</item>
+					<item>damn right</item>
+					<item>Definite</item>
+					<item>Definitely</item>
+					<item>Especially</item>
+					<item>Evidently</item>
+					<item>exactly</item>
+					<item>Extremely</item>
+					<item>For sure</item>
+					<item>Fully</item>
+					<item>Generally</item>
+					<item>gladly  </item>
+					<item>good enough</item>
+					<item>granted</item>
+					<item>heck yes</item>
+					<item>Hell yes</item>
+					<item>I believe so</item>
+					<item>I decided yes</item>
+					<item>I think so</item>
+					<item>In this case</item>
+					<item>indeed</item>
+					<item>Ja</item>
+					<item>Most definitely</item>
+					<item>naturally</item>
+					<item>of course </item>
+					<item>Okie dokie</item>
+					<item>Oui</item>
+					<item>please yes</item>
+					<item>positively</item>
+					<item>positively yes</item>
+					<item>precisely</item>
+					<item>right on</item>
+					<item>Si</item>
+					<item>spot on</item>
+					<item>sure thing</item>
+					<item>surely</item>
+					<item>Uh huh</item>
+					<item>uh-huh</item>
+					<item>undoubtedly</item>
+					<item>unquestionably</item>
+					<item>very well  </item>
+					<item>why yes</item>
+					<item>willingly</item>
+					<item>without fail</item>
+					<item>word</item>
+					<item>yah</item>
+					<item>yeah</item>
+					<item>yep</item>
+					<item>yes please</item>
+					<item>Yes really</item>
+					<item>Yes right</item>
+					<item>Yes sometimes</item>
+					<item>Yes sure</item>
+					<item>yes yes</item>
+					<item>yes yes yes</item>
+					<item>Yes you</item>
+					<item>you bet</item>
+					<item>you got it</item>
+					<item>yup</item>
+					<item>yyeah</item>
+					<item>yyep</item>
+					<item>yyes</item>
+					<item>yyyyyyyyyyyyyyyyesssssss</item>
+					<item>yuup</item>
+					<item>yuupp</item>
+					<item>yuur</item>
+					<item>yuuu</item>
+					<item>yuuup</item>
+					<item>yuuupppp</item>
+					<item>yus</item>
+					<item>yuperoo</item>
+					<item>yuperz</item>
+					<item>yupidydoda</item>
+					<item>yupiii</item>
+					<item>yupo</item>
+					<item>yupp</item>
+					<item>yuppers</item>
+					<item>yupperz</item>
+					<item>yuppie</item>
+					<item>yuppp</item>
+					<item>yuppper</item>
+					<item>yupppers</item>
+					<item>yupppp</item>
+					<item>yupppppp</item>
+					<item>yups</item>
+					<item>yupyup</item>
+					<item>yupz</item>
+					<item>yupzz</item>
+					<item>yesz</item>
+					<item>yesyes</item>
+					<item>yesyesyes</item>
+					<item>yesyesyesyes</item>
+					<item>yesyesyesyesyes</item>
+					<item>yesyesyesyesyesyes</item>
+					<item>yesyesyesyesyesyesyes</item>
+					<item>yez</item>
+					<item>yezz</item>
+					<item>yezzir</item>
+					<item>yha</item>
+					<item>yipyesg</item>
+					<item>yesh</item>
+					<item>yeshum</item>
+					<item>yeshums</item>
+					<item>yesi i</item>
+					<item>yesish</item>
+					<item>yesit it</item>
+					<item>yesly</item>
+					<item>yesm</item>
+					<item>yesn</item>
+					<item>yesq</item>
+					<item>yess</item>
+					<item>yesseess</item>
+					<item>yesshhh</item>
+					<item>yessiere</item>
+					<item>yessin</item>
+					<item>yessir</item>
+					<item>yessiree</item>
+					<item>yessireeee</item>
+					<item>yessm</item>
+					<item>yesss</item>
+					<item>yessss</item>
+					<item>yessum</item>
+					<item>yeper</item>
+					<item>yeperdoodles</item>
+					<item>yepers</item>
+					<item>yeples</item>
+					<item>yepo</item>
+					<item>yepp</item>
+					<item>yeppah</item>
+					<item>yepper</item>
+					<item>yeppers</item>
+					<item>yepperz</item>
+					<item>yeppie</item>
+					<item>yeppo</item>
+					<item>yeppp</item>
+					<item>yeppppppp</item>
+					<item>yepppppppppppppppppppppp</item>
+					<item>yeppurs</item>
+					<item>yeppy</item>
+					<item>yeppz</item>
+					<item>yeps</item>
+					<item>yepsiree</item>
+					<item>yepster</item>
+					<item>yepyep</item>
+					<item>yepyepyepyepyepyepy</item>
+					<item>yepz</item>
+					<item>yer</item>
+					<item>yeess</item>
+					<item>yeesss</item>
+					<item>yeessss</item>
+					<item>yeesssss</item>
+					<item>yehh</item>
+					<item>yehhh</item>
+					<item>yehhhh</item>
+					<item>yeh</item>
+					<item>yehhhhhhhhh</item>
+					<item>yerr</item>
+					<item>yerrr</item>
+					<item>yerrrr</item>
+					<item>yeea</item>
+					<item>yeeaaah</item>
+					<item>yeeaah</item>
+					<item>yeeaahh</item>
+					<item>yeeaahhh</item>
+					<item>yeeah</item>
+					<item>yeeargh</item>
+					<item>yeeeah</item>
+					<item>yeeeeaaaaaaah</item>
+					<item>yeeeeaaaaahhh</item>
+					<item>yeeeeaaah</item>
+					<item>yeeeeah</item>
+					<item>yeeeee</item>
+					<item>yeeeeeah</item>
+					<item>sure</item>
+				</grammar>
+			</concept>
+			<concept>
+				<grammar>
+					<item>I would like</item>
+					<item>I want</item>
+					<item>Give me</item>
+					<item>Lets do</item>
+					<item>I choose</item>
+				</grammar>
+			</concept>
+		</folder>
+	</flow>
+	<entities>
+		<entity name="Plan">
+			<value name="single" value="single">
+				<grammar>
+					<item>ingle</item>
+				</grammar>
+			</value>
+			<value name="joint" value="joint">
+				<grammar>
+					<item>joint</item>
+					<item>join</item>
+				</grammar>
+			</value>
+		</entity>
+	</entities>
+	<constants>
+		<var_folder name="Home">
+			<var_folder name="General" type="CONST">
+				<var name="VA" type="TAG" description="Name of the virtual agent">Peppe</var>
+			</var_folder>
+		</var_folder>
+	</constants>
+	<variables>
+		<var_folder name="Home">
+			<var name="plan" type="TEXT" description="single or joint" />
+			<var name="method" type="TEXT" description="file or not" />
+		</var_folder>
+	</variables>
+	<settings>
+		<setting name="USERIDNUM" type="USER">759</setting>
+		<setting name="EMAIL" type="USER"></setting>
+		<setting name="PASSWORD" type="USER"></setting>
+		<setting name="FIRSTNAME" type="USER">IBM</setting>
+		<setting name="LASTNAME" type="USER">Watson</setting>
+		<setting name="COUNTRY" type="USER">USA</setting>
+		<setting name="STATE" type="USER">NY State</setting>
+		<setting name="CITY" type="USER">NY</setting>
+		<setting name="BDAY" type="USER">1</setting>
+		<setting name="BMONTH" type="USER">1</setting>
+		<setting name="BYEAR" type="USER">2000</setting>
+		<setting name="SEX" type="USER">Male</setting>
+		<setting name="DISPLAYNAME" type="USER">IBM Watson</setting>
+		<setting name="PROVIDESECURITYPASSWORD" type="USER">false</setting>
+		<setting name="SECURITYPASSWORD" type="USER"></setting>
+		<setting name="SHOWPERSPROFILE" type="USER">false</setting>
+		<setting name="USETYPE" type="USER">0</setting>
+		<setting name="DATEJOINED" type="USER">2015-08-07 16:27:53.281
+		</setting>
+		<setting name="LASTLOGIN" type="USER">2015-08-07 16:27:53.281
+		</setting>
+		<setting name="LOGINCOUNT" type="USER">0</setting>
+		<setting name="CREDIT" type="USER">100</setting>
+		<setting name="CONVCOUNT" type="USER">4</setting>
+		<setting name="PERSONALITYTYPEID" type="USER">0</setting>
+		<setting name="SHOWSENDMESSAGE" type="USER">true</setting>
+		<setting name="ACTIVATED" type="USER">true</setting>
+		<setting name="MESSENGEREMAIL" type="USER"></setting>
+		<setting name="MESSENGERPASSWORD" type="USER"></setting>
+		<setting name="SENDCHATEMAIL" type="USER">true</setting>
+		<setting name="SENDFAVEMAIL" type="USER">true</setting>
+		<setting name="CACHE" type="USER">true</setting>
+		<setting name="CLASSTYPE" type="USER">3</setting>
+		<setting name="AUTOLEARN" type="USER">false</setting>
+		<setting name="LANGUAGE" type="USER">EN</setting>
+		<setting name="RESPONSETIME" type="USER">-2</setting>
+		<setting name="MAXAUTOLEARNITEMS" type="USER">0</setting>
+		<setting name="NUMAUTOSETRELATED" type="USER">0</setting>
+		<setting name="TIMEZONEID" type="USER">Australia/Sydney</setting>
+		<setting name="AUTOSETRELATEDNODEID" type="USER">0</setting>
+		<setting name="RETURNTOCHATNODEID" type="USER">0</setting>
+		<setting name="INPUTMASKTYPE" type="USER">0</setting>
+		<setting name="NUMLOGINATTEMPTS" type="USER">0</setting>
+		<setting name="CONCEPTMATCHING" type="USER">0</setting>
+		<setting name="UI_COLOUR"></setting>
+		<setting name="USE_CONCEPTS">3</setting>
+		<setting name="PARENT_ACCOUNT">parentconcepts</setting>
+		<setting name="AL_NONE_LABEL">None of the above</setting>
+		<setting name="ASR_RANDOM">true</setting>
+		<setting name="DYNAMIC_MESSAGING">false</setting>
+		<setting name="DOCBASE_NUM_RESULTS">3</setting>
+		<setting name="DOCBASE_DESC_LEN">250</setting>
+		<setting name="STATUS">0</setting>
+		<setting name="DEFAULT_DNR_RETURN_POINT_CANDIDATE">-1</setting>
+		<setting name="ENTITIES_SCOPE">3</setting>
+		<setting name="POSTNODEID"></setting>
+		<setting name="MULTISENT">0</setting>
+		<setting name="DNR_NODE_ID">-15</setting>
+		<setting name="CLEARCACHE">sd6pprd-dfd2 sd6pprd-1e75</setting>
+	</settings>
+	<specialSettings>
+		<specialSetting label="DNR Join Statement">
+			<variations />
+		</specialSetting>
+	</specialSettings>
+</dialog>
